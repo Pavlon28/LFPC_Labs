@@ -1,0 +1,52 @@
+package Lab_1;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Grammar {
+    private List<String> VN; // Non-terminal symbols
+    private List<String> VT; // Terminal symbols
+    private List<ProductionRule> P; // Production rules
+    private String S; // Start symbol
+
+    public Grammar(List<String> VN, List<String> VT, List<ProductionRule> P, String S) {
+        this.VN = VN;
+        this.VT = VT;
+        this.P = P;
+        this.S = S;
+    }
+
+    public String generateString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        generateStringHelper(S, stringBuilder);
+        return stringBuilder.toString();
+    }
+
+    private void generateStringHelper(String symbol, StringBuilder stringBuilder) {
+        if (VT.contains(symbol)) {
+            stringBuilder.append(symbol);
+        } else {
+            List<ProductionRule> rules = getRulesForSymbol(symbol);
+            ProductionRule selectedRule = rules.get((int) (Math.random() * rules.size()));
+            for (String s : selectedRule.getProduction()) {
+                generateStringHelper(s, stringBuilder);
+            }
+        }
+    }
+
+
+    private List<ProductionRule> getRulesForSymbol(String symbol) {
+        List<ProductionRule> rules = new ArrayList<>();
+        for (ProductionRule rule : P) {
+            if (rule.getNonTerminal().equals(symbol)) {
+                rules.add(rule);
+            }
+        }
+        return rules;
+    }
+
+    public FiniteAutomaton toFiniteAutomaton() {
+        // Implementation to convert Grammar to Finite Automaton
+        return null; // Placeholder
+    }
+}
