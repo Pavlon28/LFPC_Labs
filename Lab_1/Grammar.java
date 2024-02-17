@@ -1,25 +1,36 @@
 package Lab_1;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Grammar {
     private List<String> VN; // Non-terminal symbols
     private List<String> VT; // Terminal symbols
     private List<ProductionRule> P; // Production rules
     private String S; // Start symbol
+    private Set<String> generatedStrings; // Set to store generated strings
 
     public Grammar(List<String> VN, List<String> VT, List<ProductionRule> P, String S) {
         this.VN = VN;
         this.VT = VT;
         this.P = P;
         this.S = S;
+        this.generatedStrings = new HashSet<>();
     }
 
     public String generateString() {
         StringBuilder stringBuilder = new StringBuilder();
         generateStringHelper(S, stringBuilder);
-        return stringBuilder.toString();
+        String generatedString = stringBuilder.toString();
+        while (generatedStrings.contains(generatedString)) { // Regenerate if string has been generated before
+            stringBuilder = new StringBuilder();
+            generateStringHelper(S, stringBuilder);
+            generatedString = stringBuilder.toString();
+        }
+        generatedStrings.add(generatedString);
+        return generatedString;
     }
 
     private void generateStringHelper(String symbol, StringBuilder stringBuilder) {
@@ -33,7 +44,6 @@ public class Grammar {
             }
         }
     }
-
 
     private List<ProductionRule> getRulesForSymbol(String symbol) {
         List<ProductionRule> rules = new ArrayList<>();
