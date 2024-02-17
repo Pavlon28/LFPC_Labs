@@ -55,8 +55,23 @@ public class Grammar {
         return rules;
     }
 
+
     public FiniteAutomaton toFiniteAutomaton() {
-        // Implementation to convert Grammar to Finite Automaton
-        return null;
+        FiniteAutomaton fa = new FiniteAutomaton();
+        fa.setStartState(this.S);
+
+        for (ProductionRule rule : this.P) {
+            String nonTerminal = rule.getNonTerminal();
+            List<String> production = rule.getProduction();
+
+            if (production.size() == 1) {
+                fa.addTransition(nonTerminal, production.get(0), "ACCEPT");
+                fa.addAcceptState("ACCEPT");
+            } else if (production.size() == 2) {
+                fa.addTransition(nonTerminal, production.get(0), production.get(1));
+            }
+        }
+
+        return fa;
     }
 }
