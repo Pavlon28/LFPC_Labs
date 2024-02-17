@@ -9,7 +9,7 @@ public class Grammar {
     private List<String> VN;
     private List<String> VT;
     private List<ProductionRule> P;
-    private String S; // Start symbol
+    private String S;
     private Set<String> generatedStrings; // Set to store generated strings
 
     public Grammar(List<String> VN, List<String> VT, List<ProductionRule> P, String S) {
