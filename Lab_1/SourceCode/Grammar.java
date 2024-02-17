@@ -1,4 +1,7 @@
-package Lab_1;
+package Lab_1.SourceCode;
+
+import Lab_1.SourceCode.ProductionRule;
+import Lab_1.SourceCode.FiniteAutomaton;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,8 @@
-package Lab_1;
+package Lab_1.SourceCode;
+
+import Lab_1.SourceCode.ProductionRule;
+import Lab_1.SourceCode.FiniteAutomaton;
+import Lab_1.SourceCode.Grammar;
 
 import java.util.List;
 import java.util.ArrayList;

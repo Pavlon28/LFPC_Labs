@@ -1,4 +1,4 @@
-package Lab_1;
+package Lab_1.SourceCode;
 
 import java.util.HashMap;
 import java.util.HashSet;
