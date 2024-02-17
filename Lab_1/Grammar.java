@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Set;
 
 public class Grammar {
-    private List<String> VN; // Non-terminal symbols
-    private List<String> VT; // Terminal symbols
-    private List<ProductionRule> P; // Production rules
+    private List<String> VN;
+    private List<String> VT;
+    private List<ProductionRule> P;
     private String S; // Start symbol
     private Set<String> generatedStrings; // Set to store generated strings
 
@@ -57,6 +57,6 @@ public class Grammar {
 
     public FiniteAutomaton toFiniteAutomaton() {
         // Implementation to convert Grammar to Finite Automaton
-        return null; // Placeholder
+        return null;
     }
 }
