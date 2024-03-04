@@ -153,4 +153,3 @@ class FiniteAutomaton {
         return closureStr.toString();
     }
 }
-
