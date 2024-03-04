@@ -43,9 +43,9 @@ public class Main {
         // Determine if the finite automaton is deterministic
         boolean isDeterministic = finiteAutomaton.isDeterministic();
         if (isDeterministic) {
-            System.out.println("The NDFA is deterministic.");
+            System.out.println("The NDFA exhibits deterministic behavior.");
         } else {
-            System.out.println("The NDFA is non-deterministic.");
+            System.out.println("The NDFA exhibits non-deterministic behavior.");
         }
 
         // Convert finite automaton to deterministic finite automaton
@@ -54,9 +54,9 @@ public class Main {
         // Check if the resulting DFA is deterministic
         boolean isDeterministicDFA = dfa.isDeterministic();
         if (isDeterministicDFA) {
-            System.out.println("The converted DFA is deterministic.");
+            System.out.println("The resulting DFA exhibits deterministic behavior");
         } else {
-            System.out.println("The converted DFA is non-deterministic.");
+            System.out.println("The resulting DFA exhibits non-deterministic behavior.");
         }
     }
 }
